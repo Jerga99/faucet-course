@@ -1,2 +1,8 @@
 Transaction
 https://etherscan.io/tx/0x1a2224588c57abedc1ca487e6234e9d5181ffcf1a1e1507c5867b5e9c761916f
+
+
+
+
+web3.js: is a collection of libs that allow you to interact with a local
+or remote ethereum node.
