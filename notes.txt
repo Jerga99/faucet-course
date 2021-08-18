@@ -31,3 +31,31 @@ Memory[0x00] =  code to copy
 
 
 
+// how is Block Header Calculated
+RLP (“recursive length prefix”) encoding is the main serialization format used in Ethereum,
+and is used everywhere - for blocks, transactions, account state data and
+wire protocol messages.
+
+How header is encoded
+https://ethereum.stackexchange.com/questions/67280/block-header-hash-calculation
+
+Encoder
+https://toolkit.abdk.consulting/ethereum#rlp
+
+About RLP encoding
+https://medium.com/coinmonks/data-structure-in-ethereum-episode-1-recursive-length-prefix-rlp-encoding-decoding-d1016832f919
+
+Etherem Live view
+http://ethviewer.live/
+
+
+bits, bytes, words
+https://www.youtube.com/watch?v=Weyv-V8xz0c
+
+EVMs, and Bytecode
+https://www.youtube.com/watch?v=RxL_1AfV7N4
+
+Memory in computer:
+https://www.youtube.com/watch?v=F0Ri2TpRBBg
+
+
