@@ -10,4 +10,8 @@ contract Faucet {
   function addFunds() external payable {
     funders.push(msg.sender);
   }
+
+  function getAllFunders() external view returns (address[] memory) {
+    return funders;
+  }
 }
