@@ -4,13 +4,22 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract Test {
 
-  function test(uint testNum) external pure returns (uint) {
+  function test(uint testNum) external pure returns (uint data) {
 
     assembly {
-      let _num := 4
-      let _fmp := mload(0x40)
+      mstore(0x40, 0x90)
     }
 
-    return testNum;
+    uint8[3] memory items = [1,2,3];
+
+    assembly {
+      data := mload(add(0x90, 0x20))
+    }
   }
 }
+
+// 0x40
+// 0x0000000000000000000000000000000000000000000000000000000000000080
+
+
+// 0x29e99f070000000000000000000000000000000000000000000000000000000000000003
