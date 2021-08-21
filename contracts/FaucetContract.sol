@@ -3,23 +3,23 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract Faucet {
 
-  address[] private funders;
-
-  // private -> can be accesible only within the smart contract
-  // internal -> can be accesible within smart contract and also derived smart contract
+  uint public numOfFunders;
+  mapping(uint => address) private funders;
 
   receive() external payable {}
 
   function addFunds() external payable {
-    funders.push(msg.sender);
-  }
-
-  function getAllFunders() public view returns (address[] memory) {
-    return funders;
+    uint index = numOfFunders++;
+    funders[index] = msg.sender;
   }
 
   function getFunderAtIndex(uint8 index) external view returns(address) {
-    address[] memory _funders = getAllFunders();
-    return _funders[index];
+    return funders[index];
   }
 }
+
+
+// const instance = await Faucet.deployed();
+// instance.addFunds({from: accounts[0], value: "200000000"})
+// instance.addFunds({from: accounts[1], value: "200000000"})
+// instance.getFunderAtIndex(0)
