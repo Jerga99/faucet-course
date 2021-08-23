@@ -59,3 +59,5 @@ Memory in computer:
 https://www.youtube.com/watch?v=F0Ri2TpRBBg
 
 
+Metamask Security
+https://community.metamask.io/t/what-is-a-secret-recovery-phrase-and-how-to-keep-your-crypto-wallet-secure/3440
