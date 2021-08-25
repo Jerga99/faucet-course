@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const loadProvider = async () => {
       const provider = await detectEthereumProvider()
-      const contract = await loadContract("Faucet")
+      const contract = await loadContract("Faucet", provider)
 
       if (provider) {
         setWeb3Api({
