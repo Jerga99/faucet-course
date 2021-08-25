@@ -17,7 +17,7 @@ function App() {
   const [account, setAccount] = useState(null)
   const [shouldReload, reload] = useState(false)
 
-  const reloadEffect = () => reload(!shouldReload)
+  const reloadEffect = useCallback(() => reload(!shouldReload), [shouldReload])
 
   useEffect(() => {
     const loadProvider = async () => {
@@ -66,7 +66,16 @@ function App() {
 
     // window.location.reload()
     reloadEffect()
-  }, [web3Api, account])
+  }, [web3Api, account, reloadEffect])
+
+  const withdraw = async () => {
+    const { contract, web3 } = web3Api
+    const withdrawAmount = web3.utils.toWei("0.1", "ether")
+    await contract.withdraw(withdrawAmount, {
+      from: account
+    })
+    reloadEffect()
+  }
 
   return (
     <>
@@ -97,6 +106,7 @@ function App() {
               Donate 1eth
             </button>
           <button
+            onClick={withdraw}
             className="button is-primary">Withdraw</button>
         </div>
       </div>
