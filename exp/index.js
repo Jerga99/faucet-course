@@ -1,6 +1,6 @@
 
 
-// 0xf86c01850c4b201000825208949cbfd6ebdb9cfcccd6b043f43e524583486d455e880490283b23ec8f768025a067da959a6d114d42016b5fb43ff8ae018efe6e4c784d40dfb2f2aad8fb2d4f6ca00b019b1e457b592e5bfd553e3b73742de625c7b65145494a57dbca17e5e9d842
+// 0xf8 6c 01850c4b201000825208949cbfd6ebdb9cfcccd6b043f43e524583486d455e880490283b23ec8f768025a067da959a6d114d42016b5fb43ff8ae018efe6e4c784d40dfb2f2aad8fb2d4f6ca00b019b1e457b592e5bfd553e3b73742de625c7b65145494a57dbca17e5e9d842
 
 // 0x
 // 01101100
@@ -65,3 +65,31 @@ const isValid = tx.verifySignature()
 console.log("Public Key: ", key.toString("hex"))
 console.log("Address: ", address.toString("hex"))
 console.log("Is Valid: ", isValid)
+
+
+const txParams2 = {
+  nonce: "0x01",
+  gasPrice: "0x0C4B201000",
+  gasLimit: "0x5208",
+  to: "0x9cbfd6ebdb9cfcccd6b043f43e524583486d455e",
+  value: "0x0490283B23EC8F76",
+  data: "0x"
+}
+
+
+const tx2 = new EthereumTx(
+  txParams2, {chain: "mainnet"}
+)
+
+const privateKey = Buffer.from("f23450a4b023df60e71c6fe4116fd8fc49c5f39d11d0c8b9d420fbd912b33030", "hex")
+
+tx2.sign(privateKey)
+
+const key2 = tx2.getSenderPublicKey()
+const address2 = tx2.getSenderAddress()
+const isValid2 = tx2.verifySignature()
+
+console.log("Public Key: ", key2.toString("hex"))
+console.log("Address: ", address2.toString("hex"))
+console.log("Is Valid: ", isValid2)
+
