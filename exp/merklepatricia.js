@@ -1,6 +1,8 @@
 const Trie = require("merkle-patricia-tree").SecureTrie; // We import the library required to create a basic Merkle Patricia Tree
 const { BranchNode } = require("merkle-patricia-tree/dist/trieNode")
 
+const { keccak256 } = require("ethereumjs-util");
+
 var trie = new Trie(); // We create an empty Patricia Merkle Tree
 
 const traverseTrie = (node) => {
@@ -37,21 +39,30 @@ async function test() {
   traverseTrie(trie.root)
 
   console.log("Root Hash: ", trie.root.toString("hex"))
-
 }
 
 test()
 
-// Keccak256(key) as a String
-// 4f6c1c50fde5f5d4f20c2979974a8f465b24e65062f02ef80f722200f35105e2
+// Keccak256(32fa7c) as a String
+// 4 is stored in the Branch Node
+// 4 f6c1c50fde5f5d4f20c2979974a8f465b24e65062f02ef80f722200f35105e2
 
-// add 20 hex prefix if nibbles are even
-// 204f6c1c50fde5f5d4f20c2979974a8f465b24e65062f02ef80f722200f35105e2
+// RLP - 20 if number is even, 3 if number is odd
+// a0 = 0x80 + 32
+// e4 = 0xc0 + 36
 
-// 0x80 + 33 = a1
-// 0x80 + 2 = 82
-// 0xc0 + 37 = e5
-// e5a1204f6c1c50fde5f5d4f20c2979974a8f465b24e65062f02ef80f722200f35105e2823230
+// e4a03f6c1c50fde5f5d4f20c2979974a8f465b24e65062f02ef80f722200f35105e2823230
 
 // keccak256(RLP)
-// 17dee68b36b0276d8db503b497c8335d5d4ace0ed3fef5f6fa62644dcd66f170
+// b7f631fbd6cfb1aeb19411e75fc33769934c7ea2242a47b54ed6895e9627a0fc
+
+// Keccak256(32fa7b) as a String
+// 3 is stored in the Branch Node
+// 3 3865e1f181df18d1fff8847c6298e5b2c621a56f368e030e8ead670c8b01aa1
+
+// RLP - 20 if number is even, 3 if number is odd
+
+// e4a033865e1f181df18d1fff8847c6298e5b2c621a56f368e030e8ead670c8b01aa1823130
+
+// keccak256(RLP)
+// 2fd2c9e2e74e9d07a920dd1ebf94f1bd7a5aa1764464769c83ce1cbb38137d65
