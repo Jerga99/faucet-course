@@ -21,6 +21,13 @@ const traverseTrie = (node) => {
 }
 
 async function test() {
+
+  await trie.put(
+    Buffer.from("32fa7b"),
+    // ASCII Text to Hex 31 30
+    Buffer.from("10")
+  )
+
   await trie.put(
     Buffer.from("32fa7c"),
     // ASCII Text to Hex 32 30
