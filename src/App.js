@@ -123,9 +123,9 @@ function App() {
                 <div>{account}</div> :
                 <button
                   className="button is-small"
-                  onClick={async () =>
-                    web3Api.provider.request({method: "eth_requestAccounts"}
-                  )}
+                  onClick={async () =>{
+                   await web3Api.provider.request({method: "eth_requestAccounts"}
+                  )}}
                 >
                   Connect Wallet
                 </button>
