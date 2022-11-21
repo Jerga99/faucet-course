@@ -1,8 +1,22 @@
 
 
-.faucet-wrapper {
+.tile {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: rgb(151, 240, 209); */
+  /* background-image: url("https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1660318341-empressa-bridge-faucet-by-blanco-1660318320.jpg?crop=1xw:0.931257581884351xh;center,top&resize=480:*"); */
+}
+
+.faucet{
+  height: 50%;
+  
+  padding: 20%;
+  justify-content: center;
+  align-items: center;
+  background-image:url("https://miro.medium.com/max/1400/1*o_CS0U2dGYE7m34VNOUxjA.jpeg");
+  font-weight: bold;
+  color: rgb(14, 27, 55);
+  opacity: 0.75;
 }
